@@ -1,0 +1,68 @@
+-> create react app
+
+- npx create-react-app hello-world
+
+- cd hello-world
+- npm start
+
+
+-->> Components in React
+
+- components lets you spilt the UI into independent, reusable pieces.
+- two types of componets:
+- 1) stateless Functional components
+- 2) stateful Class components
+
+--------------------------------------------------------------
+
+
+- When React sees an element representing a user-defined component, it passes JSX attributes
+and children to this component as a single object. We call this object “props”.
+
+
+-->> JSX (Javascript XML)
+- used to write XML like code for element and components.
+- JSX tags have tag name, attribute & children.
+- by default, ReactDOM escapes any values embedded in JSX before rendering them.
+- so  injection is never happen.
+- everything converted to string before rendering.
+- this helps to prevent XSS(cross-site-scripting) attacks.
+
+--------------------------------------------------------------
+
+JSX;-
+const ele = <h1 class="greeting">Hello,</h1>
+
+ReactDOM:-
+const ele = React.createElement('h1', {className: 'greeting'}, 'Hello,');
+
+more simplified:-
+const ele = {
+	type: 'h1',
+	props: {
+		className: 'greeting',
+		childern: 'Hello,'
+	}
+};
+
+--------------------------------------------------------------
+
+
+- properties that we know that it's going to passed then set it as a attribute
+- or we can add childern element also
+- {props.children};
+- if there is children element then it will append otherwise not
+
+- props are immutable (can not change data)
+
+--------------------------------------------------------------
+
+-->> setState() method :-
+- it is async method
+
+- two parameters
+-1) object
+-2) callback function {this callback function only executes when object is parsed}
+
+- code has to be executed after the state has been updated? the place that code into the callback function as 2nd argument
+- when we have to update statte based on the previous state value, pass in a function as an argument instead of the regular object.
